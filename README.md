@@ -1,11 +1,11 @@
 # EngineeringAssessment
 A containerized Nameko service that provides three simple functions.
 
-
 ## The Development Summarized
 
 **Development Environment Setup:**
- 
+ I haven't programmed in Python for quite a few months; I'd have to check my commits on `pymathfi` to be sure. On my Windows desktop, the following steps outline how I set up my Python development environment.
+
  1. Installed Virtual Box.
  2. Created a Virtual Machine with Ubuntu 20.20.
  3. Installed `python3.6` globally by adding `deadsnakes` repository to system sources.
@@ -18,8 +18,10 @@ A containerized Nameko service that provides three simple functions.
     - This needed a personal access token, since I have 2FA on my GitHub account.
 
 **Development Procedure:**
+I have never used Docker before, so I worked through the first half of [this tutorial](https://www.youtube.com/watch?v=fqMOX6JJhGo). Another tutorial that was an excellent resource was [Introduction to Nameko with Docker](https://max6log.wordpress.com/2017/04/23/introduction-to-nameko-with-docker/). My plan for the implementation was to roughly complete it in three phases.
 
-1. First create three, simple working functions. 
+
+1. First create three, simple working functions. This was `threefunctions.py`.
 2. Refactor those functions as a Nameko service and test.
     - This requires RabbitMQ installed.
 
@@ -48,4 +50,8 @@ n.rpc.engineering_assessment.decode_string('lZoc1vIy') #this hash will be differ
 ```
 
 **Wrapping Up:**
-To complete the assignment, I remove the files created by `pipenv` as well as the initial draft, `threefunctions.py`, as they're no longer necessary.
+
+To complete the assignment, I remove the files created by `pipenv` as well as the initial draft, `threefunctions.py`, as they're no longer necessary. Final test was to clone the repository fresh in a different location and ensure that the above steps all work.
+
+## Review
+Overall, I had a blast! The microservices approach is new to me, as my background in programming is mostly related to implementing numerical methods for my own use. I can, however, immediately see the value. The entire assessment took about 5 hours with most of that time spent learning the basics of Docker and `docker-compose`.
