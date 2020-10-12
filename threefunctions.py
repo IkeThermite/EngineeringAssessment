@@ -20,3 +20,12 @@ def encode_strings(string_list):
 
 print(encode_strings(string_list))
 print(encode_strings(string_list2))
+
+decode_this = b'\xd92'
+def decode_string(word):
+    try:
+        return list(encoded_strings.keys())[list(encoded_strings.values()).index(word)]
+    except:
+        print("User Error: This code does not match any previously encoded string.")
+
+print(decode_string(decode_this))
