@@ -8,7 +8,7 @@ A containerized Nameko service that provides three simple functions.
  I haven't programmed in Python for quite a few months; I'd have to check my commits on `pymathfi` to be sure. On my Windows desktop, the following steps outline how I set up my Python development environment.
 
  1. Installed Virtual Box.
- 2. Created a Virtual Machine with Ubuntu 20.20.
+ 2. Created a Virtual Machine with Ubuntu 20.04.
  3. Installed `python3.6` globally by adding `deadsnakes` repository to system sources.
  4. Installed `pip` and `pipenv`.
  5. Installed `git` and Visual Studio Code.
