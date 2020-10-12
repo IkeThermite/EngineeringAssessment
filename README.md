@@ -1,7 +1,8 @@
 # EngineeringAssessment
 A containerized Nameko service that provides three simple functions.
 
-Our journey so far...
+
+## The Development Summarized
 
 **Development Environment Setup:**
  
@@ -16,8 +17,12 @@ Our journey so far...
  8. Added the Pipfile, committed and pushed.
     - This needed a personal access token, since I have 2FA on my GitHub account.
 
-**Basic Development Procedure:**
+**Development Procedure:**
 
 1. First create three, simple working functions. 
 2. Refactor those functions as a Nameko service and test.
     - This requires RabbitMQ installed.
+
+Okay, this all went fine *except* the Huffman compression generates a `byte` literal, which can't be JSON serialized (obviously).
+This means that it can't be used as a request or response payload with the RPC extension for Nameko. 
+Since the spec requires that we return a dictionary, my solution is to create an additional hashtable to sit between the user of the service and the actual encoded (compressed) string.
