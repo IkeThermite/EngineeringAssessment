@@ -23,6 +23,29 @@ A containerized Nameko service that provides three simple functions.
 2. Refactor those functions as a Nameko service and test.
     - This requires RabbitMQ installed.
 
-Okay, this all went fine *except* the Huffman compression generates a `byte` literal, which can't be JSON serialized (obviously).
+Okay, this all went fine *except* the Huffman compression generates a `byte` literal, which can't be JSON serialized.
 This means that it can't be used as a request or response payload with the RPC extension for Nameko. 
-Since the spec requires that we return a dictionary, my solution is to create an additional hashtable to sit between the user of the service and the actual encoded (compressed) string.
+Since the spec requires that we return a dictionary, my solution is to create an additional hashtable to sit between the user of the service and the actual encoded (compressed) string. I've added to `peek` functions to make working with both hashtables easy.
+
+3. Now to containerize the application.
+
+After some trial and error, it appears that it's more difficult to run `rabbitmq` inside the same container than what it is to use `docker-compose` and the official `rabbitmq` image. So that's what I've done.
+
+**Using the Service:**
+
+- Start by building the image from the Dockerfile: `docker-compose build`
+- Then start the services in background (detached): `docker-compose up -d`
+- Head over to the container's bash: `docker exec -it engineeringassessment_app_1 bash`
+- Fire up the `nameko shell` with the proper config: `nameko shell --config conf.yml`
+
+Now you can test the services. Example tests:
+
+```python
+n.rpc.engineering_assessment.square_odd([-4, -3, 1, 2, 3, 5, 10])
+n.rpc.engineering_assessment.encode_strings(['this', 'is', 'a', 'test'])
+n.rpc.engineering_assessment.peekAtStringHashes()
+n.rpc.engineering_assessment.decode_string('lZoc1vIy') #this hash will be different
+```
+
+**Wrapping Up:**
+To complete the assignment, I remove the files created by `pipenv` as well as the initial draft, `threefunctions.py`, as they're no longer necessary.

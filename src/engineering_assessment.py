@@ -32,9 +32,9 @@ class EngineeringAssessment:
             print("User Error: This code does not match any previously encoded string.")
 
     @rpc
-    def peekAtEncodedStrings(self):
-        return self.encoded_strings
+    def peek_encoded_strings(self):
+        print(self.encoded_strings)
     
     @rpc
-    def peekAtStringHashes(self):
+    def get_string_hashes(self):
         return self.lookup_strings

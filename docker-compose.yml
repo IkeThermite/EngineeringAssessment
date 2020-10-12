@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    app:
+        build: .
+        restart: always
+        depends_on:
+            - rabbitmq
+    
+    rabbitmq:
+        image: "rabbitmq"
