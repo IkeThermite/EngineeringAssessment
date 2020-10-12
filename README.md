@@ -15,3 +15,9 @@ Our journey so far...
  7. Created a `pipenv` virtual environment to use `python3.6`.
  8. Added the Pipfile, committed and pushed.
     - This needed a personal access token, since I have 2FA on my GitHub account.
+
+**Basic Development Procedure:**
+
+1. First create three, simple working functions. 
+2. Refactor those functions as a Nameko service and test.
+    - This requires RabbitMQ installed.
