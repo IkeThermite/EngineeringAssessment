@@ -1,5 +1,5 @@
 # EngineeringAssessment
-A containerized Nameko service that provides three simple functions.
+Completed as part of a job interview: A containerized Nameko service that provides three simple functions.
 
 ## The Development Summarized
 
